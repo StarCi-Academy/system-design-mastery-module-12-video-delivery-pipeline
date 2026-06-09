@@ -1,0 +1,6 @@
+server:
+  port: 3000
+
+app:
+  streams-dir: /app/streams
+  source-dir: /app/fixtures

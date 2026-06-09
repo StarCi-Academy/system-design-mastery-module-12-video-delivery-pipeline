@@ -1,0 +1,17 @@
+name: abr-hls-java
+
+services:
+  streaming-service:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      APP_STREAMS_DIR: /app/streams
+      APP_SOURCE_DIR: /app/fixtures
+    volumes:
+      - hls_output:/app/streams
+
+volumes:
+  hls_output:

@@ -1,0 +1,23 @@
+name: m11l2-cdn-csharp
+
+services:
+  cdn-origin:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      APP_PORT: "3000"
+      PROXY_URL: "http://cdn-proxy:8080"
+    expose:
+      - "3000"
+    ports:
+      - "3000:3000"
+
+  cdn-proxy:
+    build:
+      context: ./nginx
+      dockerfile: Dockerfile
+    depends_on:
+      - cdn-origin
+    ports:
+      - "8080:8080"

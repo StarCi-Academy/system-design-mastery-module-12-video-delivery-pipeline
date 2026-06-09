@@ -1,0 +1,18 @@
+name: abr-hls-go
+
+services:
+  streaming-service:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      PORT: "3000"
+      STREAMS_DIR: /app/streams
+      SOURCE_DIR: /app/fixtures
+    volumes:
+      - hls_output:/app/streams
+
+volumes:
+  hls_output:

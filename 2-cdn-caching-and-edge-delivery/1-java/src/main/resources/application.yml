@@ -1,0 +1,5 @@
+server:
+  port: ${APP_PORT:3000}
+
+cdn:
+  proxy-url: ${PROXY_URL:http://cdn-proxy:8080}
